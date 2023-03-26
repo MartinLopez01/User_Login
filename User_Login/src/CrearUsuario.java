@@ -7,7 +7,7 @@ public class CrearUsuario extends JFrame{
 
 	public CrearUsuario() {
 		this.setVisible(true);
-		this.setSize(800, 700);
+		this.setSize(600, 700);
 		this.setTitle("Accede a tu cuenta");
 		this.setResizable(true);
 		this.getContentPane().setBackground(new Color(28,113,198));
@@ -20,6 +20,8 @@ public class CrearUsuario extends JFrame{
 		p1.setBackground(Color.DARK_GRAY);
 		this.add(p1);
 			
+		this.repaint();
+		this.revalidate();
 	}
 
 }

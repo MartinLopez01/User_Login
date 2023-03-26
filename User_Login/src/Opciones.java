@@ -8,7 +8,7 @@ public class Opciones extends JFrame{
 	
 	public Opciones() {
 		this.setVisible(true);
-		this.setSize(800, 700);
+		this.setSize(600, 700);
 		this.setTitle("Accede a tu cuenta");
 		this.setResizable(true);
 		this.getContentPane().setBackground(new Color(28,113,198));
@@ -21,6 +21,8 @@ public class Opciones extends JFrame{
 		p1.setBackground(Color.CYAN);
 		this.add(p1);
 		
+		this.repaint();
+		this.revalidate();
 	}
 
 }

@@ -6,7 +6,8 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		Login name = new Login();
+		//Login name = new Login();
+		MiCuenta name = new MiCuenta();
 		name.setVisible(true);
 	}
 
