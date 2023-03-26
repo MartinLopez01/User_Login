@@ -51,7 +51,7 @@ public class Login extends JFrame{
         con.setLocation(100,300);
         p1.add(con);
         
-        JTextField contra = new JTextField();
+        JPasswordField contra = new JPasswordField();
         contra.setSize(300,30);
         contra.setLocation(100,350);
         p1.add(contra);

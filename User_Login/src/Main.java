@@ -7,7 +7,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		//Login name = new Login();
-		MiCuenta name = new MiCuenta();
+		//MiCuenta name = new MiCuenta();
+		//CrearUsuario name = new CrearUsuario();
+		ListaDeUsuarios name = new ListaDeUsuarios();
+		//Opciones name = new Opciones();
 		name.setVisible(true);
 	}
 
