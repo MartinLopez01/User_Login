@@ -15,10 +15,6 @@ public class Opciones extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		
-	}
-	
-	public void menu() {
 		JMenuBar barra=new JMenuBar();
 		barra.setSize(600, 30);
 		JMenu cuenta=new JMenu("Cuenta");

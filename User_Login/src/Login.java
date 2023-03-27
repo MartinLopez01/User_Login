@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -74,9 +76,46 @@ public class Login extends JFrame{
         registrar.setLocation(370,500);
         p1.add(registrar);
         
+        cancelar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
         
-        this.repaint();
+        iniciar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				MiCuenta x = new MiCuenta();
+				x.setVisible(true);
+				cmdExitActionPerformed(e);
+			}
+		});
+        
+        registrar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				CrearUsuario name=new CrearUsuario();
+				name.setVisible(true);
+				cmdExitActionPerformed(e);
+			}
+		});
+        
+        
+        
+        
+		this.repaint();
 		this.revalidate();
 	}
+	private void cmdExitActionPerformed(ActionEvent evt) {
+        this.setVisible(false);
+        
+    }
 
 }

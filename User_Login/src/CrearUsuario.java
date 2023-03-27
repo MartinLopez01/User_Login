@@ -15,6 +15,25 @@ public class CrearUsuario extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
+		JMenuBar barra=new JMenuBar();
+		barra.setSize(600, 30);
+		JMenu cuenta=new JMenu("Cuenta");
+		JMenu usuarios=new JMenu("Usuarios");
+		JMenu ayuda=new JMenu("Ayuda");
+		JMenuItem micuenta = new JMenuItem("Mi Cuenta");
+		JMenuItem cerrar = new JMenuItem("Cerrar Sesión");
+		JMenuItem lista = new JMenuItem("Lista de usuarrios");
+		JMenuItem crear = new JMenuItem("Crear Usuario");
+		JMenuItem como = new JMenuItem("Como crear usuario?");
+		barra.add(cuenta);
+		barra.add(usuarios);
+		barra.add(ayuda);
+		cuenta.add(micuenta);
+		cuenta.add(cerrar);
+		usuarios.add(lista);
+		usuarios.add(crear);
+		ayuda.add(como);
+		this.add(barra);
 		
 		JPanel p1 = new JPanel();
 		p1.setSize(getWidth(), getHeight());
