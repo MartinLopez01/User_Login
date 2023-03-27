@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -118,17 +120,41 @@ public class CrearUsuario extends JFrame{
         cancelar.setLocation(10,370);
         p2.add(cancelar);
         
-        JButton acualizar = new JButton();
-        acualizar.setText("Crear Usuario");
-        acualizar.setSize(130, 30);
-        acualizar.setLocation(230,370);
-        p2.add(acualizar);	
+        JButton crearu = new JButton();
+        crearu.setText("Crear Usuario");
+        crearu.setSize(130, 30);
+        crearu.setLocation(230,370);
+        p2.add(crearu);	
 		
-        
+        cancelar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"A ocurrido un error!", "יחי בעל זבוב", JOptionPane.DEFAULT_OPTION);
+	        	
+				cmdExitActionPerformed(e);
+			}
+
+		});
+		
+        crearu.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"Usuario creado con exito!", "יחי בעל זבוב", JOptionPane.DEFAULT_OPTION);
+	        	
+				cmdExitActionPerformed(e);				
+			}
+		});
+		
         p1.repaint();
         p1.revalidate();
 		this.repaint();
 		this.revalidate();
 	}
 
+	public void cmdExitActionPerformed(ActionEvent e) {
+		this.setVisible(false);
+		
+	}
 }

@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -108,11 +110,11 @@ public class MiCuenta extends JFrame{
         cancelar.setLocation(10,300);
         p2.add(cancelar);
         
-        JButton acualizar = new JButton();
-        acualizar.setText("Actualizar datos");
-        acualizar.setSize(130, 30);
-        acualizar.setLocation(230,300);
-        p2.add(acualizar);	
+        JButton actualizar = new JButton();
+        actualizar.setText("Actualizar datos");
+        actualizar.setSize(130, 30);
+        actualizar.setLocation(230,300);
+        p2.add(actualizar);	
 		
         
         p1.repaint();
@@ -120,8 +122,30 @@ public class MiCuenta extends JFrame{
 		this.repaint();
 		this.revalidate();
 	
+		cancelar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"Los datos no se actualizaran!", "יחי בעל זבוב", JOptionPane.DEFAULT_OPTION);
+	        	
+				cmdExitActionPerformed(e);
+			}
+		});
 		
+		actualizar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"Se han actualizado los datos!", "יחי בעל זבוב", JOptionPane.DEFAULT_OPTION);
+	        	
+				cmdExitActionPerformed(e);				
+			}
+		});
 		
 	}
 
+	private void cmdExitActionPerformed(ActionEvent evt) {
+        this.setVisible(false);
+        
+    }
 }

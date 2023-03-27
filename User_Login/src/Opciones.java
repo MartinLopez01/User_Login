@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -35,9 +37,62 @@ public class Opciones extends JFrame{
 		ayuda.add(como);
 		this.add(barra);
 		
-		  
+		micuenta.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				MiCuenta name = new MiCuenta();
+				name.setVisible(true);
+				cmdExitActionPerformed(e);
+			}
+		});
+		cerrar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		lista.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ListaDeUsuarios name = new ListaDeUsuarios();
+				name.setVisible(true);
+				cmdExitActionPerformed(e);
+			}
+		});
+		crear.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CrearUsuario name = new CrearUsuario();
+				name.setVisible(true);
+				cmdExitActionPerformed(e);
+				
+			}
+		});
+		como.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Ayuda name = new Ayuda();
+				name.setVisible(true);
+				cmdExitActionPerformed(e);
+			}
+		});
+		
+		
+		
 		this.repaint();
 		this.revalidate();
 	}
 
+	private void cmdExitActionPerformed(ActionEvent evt) {
+        this.setVisible(false);
+        
+    }
 }
