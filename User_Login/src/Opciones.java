@@ -1,8 +1,6 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Timer;
-import java.util.TimerTask;
 import javax.swing.*;
 
 public class Opciones extends JFrame{
@@ -11,16 +9,19 @@ public class Opciones extends JFrame{
 	Timer timer;
 	public Opciones() {
 		this.setVisible(true);
-		this.setSize(600,200);
+		this.setSize(600,700);
 		this.setResizable(true);
 		this.getContentPane().setBackground(new Color(28,113,198));
 		this.setLayout(null);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		 JLabel ventanaMenu = new JLabel();
+	    	ventanaMenu.setBounds(100,50,700,350);
+	    	ventanaMenu.setIcon(new ImageIcon("src/img/hola.png"));
+	    	add(ventanaMenu);
+		
 		Menu();
 		
-		new Opciones(5);
 		
 		this.repaint();
 		this.revalidate();
@@ -62,8 +63,9 @@ public class Opciones extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				Login name = new Login();
+				name.setVisible(true);
+				cmdExitActionPerformed(e);				
 			}
 		});
 		lista.addActionListener(new ActionListener() {
@@ -103,24 +105,7 @@ public class Opciones extends JFrame{
         this.setVisible(false);
         
     }
-	
-	public Opciones(int time) {
-		timer = new Timer();
-        
-		timer.schedule(new Juegow(), time * 1000);
-		
-		
-	}
-	class Juegow extends TimerTask {
-	     public void run() {
-	         System.out.println("Time Up!");
-	         JOptionPane.showMessageDialog(null,"","Se acabo el tiempo!",
-		             JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/img/terminar.jpeg"));
-	         
-	         timer.cancel();
-	         System.exit(1);
-	     }
-	 }
+
 	
 	
 }

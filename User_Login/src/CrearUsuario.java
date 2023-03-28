@@ -113,12 +113,14 @@ public class CrearUsuario extends JFrame{
         
         JButton cancelar = new JButton();
         cancelar.setText("Cancelar");
+        cancelar.setBackground(Color.RED);
         cancelar.setSize(100, 30);
         cancelar.setLocation(10,450);
         p2.add(cancelar);
         
         JButton crearu = new JButton();
         crearu.setText("Crear Usuario");
+        crearu.setBackground(Color.BLUE);
         crearu.setSize(130, 30);
         crearu.setLocation(230,450);
         p2.add(crearu);	
@@ -138,6 +140,8 @@ public class CrearUsuario extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				if(!(Arrays.equals(contra.getPassword(), contra2.getPassword()))) {
   					JOptionPane.showMessageDialog(crearu,"Contraseña NO Coincide", "Error", JOptionPane.ERROR_MESSAGE);
 				}else {
@@ -163,7 +167,8 @@ public class CrearUsuario extends JFrame{
 							
 							e1.printStackTrace();
 						}
-				
+				Login name1 = new Login();
+				name1.setVisible(true);
 				cmdExitActionPerformed(e);	
 				}
 			}

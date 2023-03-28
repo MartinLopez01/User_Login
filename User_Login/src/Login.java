@@ -1,6 +1,9 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -21,7 +24,6 @@ public class Login extends JFrame{
 		this.setLayout(null);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Menu();
 		
 		JPanel p1 = new JPanel();
 		p1.setSize(getWidth(), getHeight());
@@ -83,7 +85,7 @@ public class Login extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				System.exit(0);
 				
 			}
 		});
@@ -92,10 +94,44 @@ public class Login extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				 String username = usuario.getText();
+			        String pwd = new String(contra.getPassword());
+			        
+			        BufferedReader reader;
+			        boolean flag = true;
+			        try {
+			        	FileReader file = new FileReader("user.txt");
+			        	reader = new BufferedReader(file);
+			        	
+			        	String line = reader.readLine();
+			        	
+			        	while(line != null) {
+			        		String data [] = line.split(",");
+			        		System.out.println(data[2]);
+			        		if(username.equals(data[2])&& username !=null) {
+			        			if(pwd.equals(data[4])&& pwd !=null) {
+	    			        			 flag = true;
+			        		}
+			        		}
+			        		
+			        		
+			        		line = reader.readLine();
+			        	}
+			        	
+			        	if(flag) {
+			        		JOptionPane.showMessageDialog(null,"Contraseña Coincide", "יחי בעל זבוב", JOptionPane.DEFAULT_OPTION);
+			        		Opciones x = new Opciones();
+							x.setVisible(true);
+							cmdExitActionPerformed(e);
+			        	
+			        	}else {
+			        		JOptionPane.showMessageDialog(null,"Contraseña NO Coincide", "Error", JOptionPane.ERROR_MESSAGE);
+			        	}
+			        	
+			        }catch (IOException e1){
+			        	e1.printStackTrace();
+			        }
 				
-				MiCuenta x = new MiCuenta();
-				x.setVisible(true);
-				cmdExitActionPerformed(e);
 			}
 		});
         

@@ -1,6 +1,10 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.table.*;
@@ -65,9 +69,34 @@ public class ListaDeUsuarios extends JFrame{
         JButton edit = new JButton();
         edit.setText("Editar a ");
         
+        BufferedReader reader;
+		
+		
+		FileReader file = null;
+		try {
+			file = new FileReader("user.txt");
+		} catch (FileNotFoundException e2) {
+			
+			e2.printStackTrace();
+		}
+		String lineCounter = null;
+		String lineArray = null;
+		int renglon = 0;
+    	reader = new BufferedReader(file);
+		
+    	
+    	while(lineCounter != null) {
+			renglon++;
+			try {
+				lineCounter = reader.readLine();
+			} catch (IOException e1) {
+
+				e1.printStackTrace();
+			}
+		}
         
         Object [] Columnas={"Usuario", "Nombre", "Acciones"} ;
-        Object [] [] datosUsuarios= new Object[5][3];
+        Object [] [] datosUsuarios= new Object[renglon][3];
         
         DefaultTableModel tabla = new DefaultTableModel(datosUsuarios, Columnas);
         JTable tablaUsuarios=new JTable(tabla) ;
