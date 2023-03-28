@@ -1,16 +1,17 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.*;
 
 public class Opciones extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	
+	Timer timer;
 	public Opciones() {
 		this.setVisible(true);
-		this.setSize(600,70);
+		this.setSize(600,200);
 		this.setResizable(true);
 		this.getContentPane().setBackground(new Color(28,113,198));
 		this.setLayout(null);
@@ -19,7 +20,7 @@ public class Opciones extends JFrame{
 
 		Menu();
 		
-		
+		new Opciones(5);
 		
 		this.repaint();
 		this.revalidate();
@@ -102,4 +103,24 @@ public class Opciones extends JFrame{
         this.setVisible(false);
         
     }
+	
+	public Opciones(int time) {
+		timer = new Timer();
+        
+		timer.schedule(new Juegow(), time * 1000);
+		
+		
+	}
+	class Juegow extends TimerTask {
+	     public void run() {
+	         System.out.println("Time Up!");
+	         JOptionPane.showMessageDialog(null,"","Se acabo el tiempo!",
+		             JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/img/terminar.jpeg"));
+	         
+	         timer.cancel();
+	         System.exit(1);
+	     }
+	 }
+	
+	
 }

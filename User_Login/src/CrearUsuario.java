@@ -1,6 +1,10 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
 
 import javax.swing.*;
 
@@ -29,18 +33,18 @@ public class CrearUsuario extends JFrame{
         title.setFont(new Font("Comic Sans", Font.BOLD, 30));
         title.setForeground(new Color(242,242,242));
         title.setSize(getWidth(),40);
-        title.setLocation(0, 70);
+        title.setLocation(0, 40);
         p1.add(title);
 		
 		JPanel p2 = new JPanel();
-		p2.setSize(500,450);
-		p2.setLocation(50,200);
+		p2.setSize(500,500);
+		p2.setLocation(50,150);
 		p2.setBackground(Color.WHITE);
 		p2.setLayout(null);
 		p1.add(p2);
 		
         JLabel nombre = new JLabel("Nombre:");
-        nombre.setFont(new Font("Comic Sans", Font.BOLD, 20));
+        nombre.setFont(new Font("Comic Sans", Font.BOLD, 15));
         nombre.setSize(getWidth(), 30);
         nombre.setLocation(10,20);
         p2.add(nombre);
@@ -52,7 +56,7 @@ public class CrearUsuario extends JFrame{
         
         
         JLabel apellido = new JLabel("Apellidos:");
-        apellido.setFont(new Font("Comic Sans", Font.BOLD, 20));
+        apellido.setFont(new Font("Comic Sans", Font.BOLD, 15));
         apellido.setSize(getWidth(), 30);
         apellido.setLocation(10,90);
         p2.add(apellido);
@@ -62,50 +66,61 @@ public class CrearUsuario extends JFrame{
         ap.setLocation(10,125);
         p2.add(ap);
         
+        JLabel us = new JLabel("Usuario:");
+        us.setFont(new Font("Comic Sans", Font.BOLD, 15));
+        us.setSize(getWidth(), 30);
+        us.setLocation(10,160);
+        p2.add(us);
+        
+        JTextField nus = new JTextField();
+        nus.setSize(300,30);
+        nus.setLocation(10,195);
+        p2.add(nus);
+        
         JLabel email = new JLabel("Email:");
-        email.setFont(new Font("Comic Sans", Font.BOLD, 20));
+        email.setFont(new Font("Comic Sans", Font.BOLD, 15));
         email.setSize(getWidth(), 30);
-        email.setLocation(10,160);
+        email.setLocation(10,230);
         p2.add(email);
         
         JTextField em = new JTextField();
         em.setSize(300,30);
-        em.setLocation(10,195);
+        em.setLocation(10,265);
         p2.add(em);
         
         JLabel con = new JLabel("Contraseña:");
-        con.setFont(new Font("Comic Sans", Font.BOLD, 20));
+        con.setFont(new Font("Comic Sans", Font.BOLD, 15));
         con.setSize(getWidth(), 30);
-        con.setLocation(10,230);
+        con.setLocation(10,300);
         p2.add(con);
         
         JPasswordField contra = new JPasswordField();
         contra.setSize(300,30);
-        contra.setLocation(10,265);
+        contra.setLocation(10,335);
         p2.add(contra);
         
         JLabel con2 = new JLabel("Confirmar contraseña:");
-        con2.setFont(new Font("Comic Sans", Font.BOLD, 20));
+        con2.setFont(new Font("Comic Sans", Font.BOLD, 15));
         con2.setSize(getWidth(), 30);
-        con2.setLocation(10,300);
+        con2.setLocation(10,370);
         p2.add(con2);
         
         JPasswordField contra2 = new JPasswordField();
         contra2.setSize(300,30);
-        contra2.setLocation(10,335);
+        contra2.setLocation(10,405);
         p2.add(contra2);
         
         
         JButton cancelar = new JButton();
         cancelar.setText("Cancelar");
         cancelar.setSize(100, 30);
-        cancelar.setLocation(10,370);
+        cancelar.setLocation(10,450);
         p2.add(cancelar);
         
         JButton crearu = new JButton();
         crearu.setText("Crear Usuario");
         crearu.setSize(130, 30);
-        crearu.setLocation(230,370);
+        crearu.setLocation(230,450);
         p2.add(crearu);	
 		
         cancelar.addActionListener(new ActionListener() {
@@ -123,9 +138,34 @@ public class CrearUsuario extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null,"Usuario creado con exito!", "יחי בעל זבוב", JOptionPane.DEFAULT_OPTION);
+				if(!(Arrays.equals(contra.getPassword(), contra2.getPassword()))) {
+  					JOptionPane.showMessageDialog(crearu,"Contraseña NO Coincide", "Error", JOptionPane.ERROR_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null,"Registro Exitoso!", "יחי בעל זבוב", JOptionPane.DEFAULT_OPTION);
 	        	
-				cmdExitActionPerformed(e);				
+  				String name = nom.getText();
+  				String ape = ap.getText();
+  				String usu = nus.getText();
+  				String email = em.getText();
+  				char[] pwd = contra.getPassword();
+  			
+  				
+  				FileWriter writer = null;
+  				PrintWriter escritor;
+  				
+  				try {
+  					writer = new FileWriter("C:\\Users\\HP\\Documents\\Java 2\\User_Login\\user.txt",true);
+  					escritor = new PrintWriter(writer);
+  					
+  					escritor.print(name+","+ape+","+usu+","+email+","+ pwd);
+							writer.close();
+						} catch (IOException e1) {
+							
+							e1.printStackTrace();
+						}
+				
+				cmdExitActionPerformed(e);	
+				}
 			}
 		});
 		
