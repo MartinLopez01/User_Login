@@ -20,15 +20,16 @@ public class CrearUsuario extends JFrame{
 		this.setLayout(null);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		Menu();
+		
 		
 		JPanel p1 = new JPanel();
 		p1.setSize(getWidth(), getHeight());
 		p1.setBackground(Color.DARK_GRAY);
 		p1.setLayout(null);
 		this.add(p1);
-		
+    	
+    	
 		JLabel title = new JLabel("Crear Usuario",JLabel.CENTER);
         title.setFont(new Font("Comic Sans", Font.BOLD, 30));
         title.setForeground(new Color(242,242,242));
@@ -39,7 +40,7 @@ public class CrearUsuario extends JFrame{
 		JPanel p2 = new JPanel();
 		p2.setSize(500,500);
 		p2.setLocation(50,150);
-		p2.setBackground(Color.WHITE);
+		p2.setBackground(Color.GRAY);
 		p2.setLayout(null);
 		p1.add(p2);
 		
@@ -114,6 +115,7 @@ public class CrearUsuario extends JFrame{
         JButton cancelar = new JButton();
         cancelar.setText("Cancelar");
         cancelar.setBackground(Color.RED);
+        cancelar.setForeground(Color.WHITE);
         cancelar.setSize(100, 30);
         cancelar.setLocation(10,450);
         p2.add(cancelar);
@@ -121,6 +123,7 @@ public class CrearUsuario extends JFrame{
         JButton crearu = new JButton();
         crearu.setText("Crear Usuario");
         crearu.setBackground(Color.BLUE);
+        crearu.setForeground(Color.WHITE);
         crearu.setSize(130, 30);
         crearu.setLocation(230,450);
         p2.add(crearu);	
@@ -129,8 +132,6 @@ public class CrearUsuario extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null,"A ocurrido un error!", "יחי בעל זבוב", JOptionPane.DEFAULT_OPTION);
-	        	
 				cmdExitActionPerformed(e);
 			}
 

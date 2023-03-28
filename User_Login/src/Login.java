@@ -31,23 +31,27 @@ public class Login extends JFrame{
 		p1.setLayout(null);
 		this.add(p1);
 		
+		JLabel ventanaMenu = new JLabel();
+    	ventanaMenu.setBounds(200,100,200,200);
+    	ventanaMenu.setIcon(new ImageIcon("src/img/acceder.png"));
+    	p1.add(ventanaMenu);
 		
 		JLabel title = new JLabel("Accede a tu cuenta",JLabel.CENTER);
         title.setFont(new Font("Comic Sans", Font.BOLD, 30));
         title.setForeground(new Color(242,242,242));
         title.setSize(getWidth(),40);
-        title.setLocation(0, 100);
+        title.setLocation(0, 50);
         p1.add(title);
 		
         JLabel nombre = new JLabel("Nombre de usuario");
         nombre.setFont(new Font("Comic Sans", Font.BOLD, 20));
         nombre.setSize(getWidth(), 30);
-        nombre.setLocation(100,200);
+        nombre.setLocation(100,300);
         p1.add(nombre);
         
         JTextField usuario = new JTextField();
         usuario.setSize(300,30);
-        usuario.setLocation(100,250);
+        usuario.setLocation(100,350);
         
         p1.add(usuario);
         
@@ -55,30 +59,32 @@ public class Login extends JFrame{
         JLabel con = new JLabel("Contraseña de acceso");
         con.setFont(new Font("Comic Sans", Font.BOLD, 20));
         con.setSize(getWidth(), 30);
-        con.setLocation(100,300);
+        con.setLocation(100,400);
         p1.add(con);
         
         JPasswordField contra = new JPasswordField();
         contra.setSize(300,30);
-        contra.setLocation(100,350);
+        contra.setLocation(100,450);
         p1.add(contra);
         
         JButton cancelar = new JButton();
         cancelar.setText("Cancelar");
+        cancelar.setBackground(Color.RED);
         cancelar.setSize(100, 30);
-        cancelar.setLocation(100,500);
+        cancelar.setLocation(100,600);
         p1.add(cancelar);
         
         JButton iniciar = new JButton();
         iniciar.setText("Iniciar Sesión");
+        iniciar.setBackground(Color.BLUE); 
         iniciar.setSize(120, 30);
-        iniciar.setLocation(230,500);
+        iniciar.setLocation(230,600);
         p1.add(iniciar);
         
         JButton registrar = new JButton();
         registrar.setText("Registrarse");
         registrar.setSize(120, 30);
-        registrar.setLocation(370,500);
+        registrar.setLocation(370,600);
         p1.add(registrar);
         
         cancelar.addActionListener(new ActionListener() {

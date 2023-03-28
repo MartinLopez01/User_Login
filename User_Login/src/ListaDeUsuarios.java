@@ -70,8 +70,6 @@ public class ListaDeUsuarios extends JFrame{
         edit.setText("Editar a ");
         
         BufferedReader reader;
-		
-		
 		FileReader file = null;
 		try {
 			file = new FileReader("user.txt");
@@ -96,7 +94,7 @@ public class ListaDeUsuarios extends JFrame{
 		}
         
         Object [] Columnas={"Usuario", "Nombre", "Acciones"} ;
-        Object [] [] datosUsuarios= new Object[renglon][3];
+        Object [][] datosUsuarios= new Object[renglon][3];
         
         DefaultTableModel tabla = new DefaultTableModel(datosUsuarios, Columnas);
         JTable tablaUsuarios=new JTable(tabla) ;
