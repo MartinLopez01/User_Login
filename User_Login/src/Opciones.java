@@ -17,6 +17,16 @@ public class Opciones extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		Menu();
+		
+		
+		
+		this.repaint();
+		this.revalidate();
+	}
+
+	public void Menu() {
+
 		JMenuBar barra=new JMenuBar();
 		barra.setSize(600, 30);
 		JMenu cuenta=new JMenu("Cuenta");
@@ -86,11 +96,8 @@ public class Opciones extends JFrame{
 		});
 		
 		
-		
-		this.repaint();
-		this.revalidate();
 	}
-
+	
 	private void cmdExitActionPerformed(ActionEvent evt) {
         this.setVisible(false);
         

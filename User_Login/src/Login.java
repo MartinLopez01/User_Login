@@ -29,6 +29,7 @@ public class Login extends JFrame{
 		p1.setLayout(null);
 		this.add(p1);
 		
+		
 		JLabel title = new JLabel("Accede a tu cuenta",JLabel.CENTER);
         title.setFont(new Font("Comic Sans", Font.BOLD, 30));
         title.setForeground(new Color(242,242,242));
